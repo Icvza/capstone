@@ -1,6 +1,5 @@
-
-function Subscribe() {
-
+export default function Subscribe () {
+    
     return (
         <>
             <div className="py-8 bg-blue-50" id="contactForm">
@@ -16,7 +15,7 @@ function Subscribe() {
                                 <div className="flex flex-col md:flex-row">
                                     <input
                                         className="w-full p-6 border mt-2 md:mr-2 border-gray-300 rounded-md placeholder placeholder:font-light md:w-auto"
-                                        placeholder="Phone Number" type="number" minlength="10" maxlength="10" required />
+                                        placeholder="Phone Number" type="number" required />
                                     <input
                                         className="w-full p-6  mt-2 md:ml-2 border  border-gray-300 rounded-md placeholder placeholder:font-light md:w-auto"
                                         placeholder="email" type="email" id="email" name="email" required />
@@ -39,5 +38,3 @@ function Subscribe() {
         </>
     )
 }
-
-export default Subscribe
