@@ -1,10 +1,8 @@
 import React from 'react';
 import Loader from '../public/loader.svg';
 
-
-
 interface ButtonProps {
-    onSubmit: () => void
+    onSubmit: (event: any) => void;
     text: string
     loading: boolean
     disabled: boolean
