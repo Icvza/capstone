@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { useState } from "react"
 import Button from '../components/Button'
+import tryMe from '../public/PLATEADONE.webp'
 
 export default function Subscribe() {
 
@@ -14,7 +15,7 @@ export default function Subscribe() {
         setTimeout(() => handleui(false), 1000)
     }
 
-    const handleui = (handle: boolean) =>{
+    const handleui = (handle: boolean) => {
         setShowLoader(false)
         setSubComp(true)
     }
@@ -25,14 +26,15 @@ export default function Subscribe() {
                 <div className=" relative flex flex-col md:flex-row  py-8 space-y-10 bg-white shadow-2xl rounded-2xl  space-y-0 md:m-0">
 
                     <div className=" p-6 md:p-20">
+
                         {subComp ?
                             <div>
                                 <h2 className="duration-200 hover:scale-105 mb-5 text-4xl text-black text-center font-bold"> Gracias</h2>
                                 <p className="duration-200 hover:scale-105 max-w-sm mb-12 font-sans text-center font-light text-black"> ¡Bienvenido a tu plaza digital favorita! Espera el primer PQTE en tu inbox en unos minutos.
                                     P.S. Si el email no te llega al inbox, verifica tu folder de promociones. 👀 </p>
-                                    
+
                                 <div className=" flex justify-center content-center items-center bg-white">
-                                    <Image className="duration-200 hover:scale-105" src="/PLATEADONE.webp" width={180} height={200} alt="Your Photo" />
+                                    <Image className="duration-200 hover:scale-105" src={tryMe} alt="Your Photo" placeholder='blur'  width={200} height={200} />
                                 </div>
                             </div>
 
