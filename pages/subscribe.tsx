@@ -1,12 +1,20 @@
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Button from '../components/Button'
-import tryMe from '../public/PLATEADONE.webp'
+import checkSub from '../public/PLATEADONE.webp'
+import Confetti from 'react-confetti'
 
 export default function Subscribe() {
 
+    const [width, setWidth] = useState(0);
+    const [height, setHeight] = useState(0);
     const [showLoader, setShowLoader] = useState(false)
     const [subComp, setSubComp] = useState(false)
+
+    useEffect(() => {
+        setWidth(window.innerWidth)
+        setHeight(window.innerHeight)
+    }, [width, height])
 
     const onSubmit = (event: any) => {
         event.preventDefault();
@@ -22,6 +30,14 @@ export default function Subscribe() {
 
     return (
         <>
+            {subComp ?
+                <Confetti
+                    width={width}
+                    height={height}
+                />
+                :
+                <div style={{display: 'none'}} ></div>
+            }
             <div className="flex items-center py-8 justify-center min-h-screen bg-blue-50">
                 <div className=" relative flex flex-col md:flex-row  py-8 space-y-10 bg-white shadow-2xl rounded-2xl  space-y-0 md:m-0">
 
@@ -34,7 +50,7 @@ export default function Subscribe() {
                                     P.S. Si el email no te llega al inbox, verifica tu folder de promociones. 👀 </p>
 
                                 <div className=" flex justify-center content-center items-center bg-white">
-                                    <Image className="duration-200 hover:scale-105" src={tryMe} alt="Your Photo" placeholder='blur'  width={200} height={200} />
+                                    <Image className="duration-200 hover:scale-105" src={checkSub} alt="Your Photo" placeholder='blur' width={200} height={200} />
                                 </div>
                             </div>
 
