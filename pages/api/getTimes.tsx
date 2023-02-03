@@ -6,10 +6,10 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const dbConnection = await mysql.createConnection({
-    host: "127.0.0.1",
+    host: "database-1.cgfpjcceic14.us-east-1.rds.amazonaws.com",
+    user: "admin",
+    password: "password",
     database: "platea_planner",
-    user: "devuser",
-    password: "Y16road2hire",
   });
   try {
     const q = `SELECT * FROM horario_servicio`;
