@@ -34,6 +34,7 @@ export default function Subscribe() {
                 <Confetti
                     width={width}
                     height={height}
+                    recycle={false}
                 />
                 :
                 <div style={{display: 'none'}} ></div>
