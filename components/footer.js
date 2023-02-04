@@ -24,7 +24,7 @@ function footer() {
 							duration={500}
 							className="cursor-pointer bg-black text-white px-10 py-5 rounded-full text-3xl font-medium hover:bg-black hover:text-[#07d9b2]"
 							>
-								Suscríbete
+								Suscríbete!
 							</Link>
 						</div>
 					</ul>
