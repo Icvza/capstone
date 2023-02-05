@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
-import { Link } from "react-scroll";
+import Link from 'next/link';
 import Image from "next/image";
 
 
@@ -8,21 +8,22 @@ function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<div>
-            {/* for main navcontainer */}
+			{/* for main navcontainer */}
 			<nav className=" shadow-sm fixed w-full z-10 bg-[#f5f5f5]">
 				<div className="w-full">
 					<div className="flex items-center h-20 w-full">
-                        {/* first block section outer part */}
+						{/* first block section outer part */}
 						<div className="flex items-center  mx-20  justify-between w-full">
 							<div className="flex justify-center items-center flex-shrink-0 ">
 								{/* <h1 className=" font-bold text-xl cursor-pointer">
 									Platea<span className="text-[#07d9b2]">PR</span>
 								</h1> */}
-                                <Image src='/platealogo.png' width={200} height={200} alt='Image'></Image>
+								<Image src='/platealogo.png' width={200} height={200} alt='Image'></Image>
 							</div>
 							<div className="hidden md:block">
 								<div className="ml-10 flex items-baseline space-x-4">
 									<Link
+										href="/contact"
 										activeClass="Home"
 										to="about"
 										smooth={true}
@@ -33,6 +34,7 @@ function Navbar() {
 										Inicio
 									</Link>
 									<Link
+										href="/contact"
 										activeClass="about"
 										to="about"
 										smooth={true}
@@ -43,6 +45,7 @@ function Navbar() {
 										Qué Hacer
 									</Link>
 									<Link
+										href="/contact"
 										activeClass="work"
 										to="work"
 										smooth={true}
@@ -53,6 +56,7 @@ function Navbar() {
 										Qué Comer
 									</Link>
 									<Link
+										href="/contact"
 										activeClass="Services"
 										to="work"
 										smooth={true}
@@ -63,6 +67,7 @@ function Navbar() {
 										Mapa Interactivo
 									</Link>
 									<Link
+										href="/subscribe"
 										activeClass="contact"
 										to="contact"
 										smooth={true}
