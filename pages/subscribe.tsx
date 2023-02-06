@@ -16,12 +16,28 @@ export default function Subscribe() {
         setHeight(window.innerHeight)
     }, [width, height])
 
-    const onSubmit = (event: any) => {
+    // const onSubmit = (event: any) => {
+    //     event.preventDefault();
+    //     setShowLoader(true)
+    //     //Create the post request to send the email to the backend but for now: 
+    //     setTimeout(() => handleui(false), 1000)
+    // }
+
+    const onSubmit = async (event: any) => {
         event.preventDefault();
         setShowLoader(true)
-        //Create the post request to send the email to the backend but for now: 
-        setTimeout(() => handleui(false), 1000)
-    }
+        try {
+            const email = event.target.parentElement.parentElement.firstChild.value;
+            const res = await fetch(`http://localhost:3000/api/${email}/`);
+            if (!res.ok) {
+                throw new Error(res.statusText);
+            } 
+        } catch (error) {
+            console.error(error);
+        } finally {
+            handleui(false);
+        }
+    };
 
     const handleui = (handle: boolean) => {
         setShowLoader(false)

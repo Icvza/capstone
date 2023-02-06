@@ -23,7 +23,7 @@ function Navbar() {
 							<div className="hidden md:block">
 								<div className="ml-10 flex items-baseline space-x-4">
 									<Link
-										href="/contact"
+										href="/planner"
 										activeClass="Home"
 										to="about"
 										smooth={true}
@@ -34,7 +34,7 @@ function Navbar() {
 										Inicio
 									</Link>
 									<Link
-										href="/contact"
+										href="/planner"
 										activeClass="about"
 										to="about"
 										smooth={true}
@@ -45,7 +45,7 @@ function Navbar() {
 										Qué Hacer
 									</Link>
 									<Link
-										href="/contact"
+										href="/planner"
 										activeClass="work"
 										to="work"
 										smooth={true}
@@ -56,7 +56,7 @@ function Navbar() {
 										Qué Comer
 									</Link>
 									<Link
-										href="/contact"
+										href="/planner"
 										activeClass="Services"
 										to="work"
 										smooth={true}
