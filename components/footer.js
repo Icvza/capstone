@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import { Link } from "react-scroll";
+import Link from "next/link";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
@@ -18,7 +18,8 @@ function footer() {
 						<div className="bg-[#f5f5f5] flex justify-center item-center gap-8 pb-5">
                         <Link
 							activeClass="contact"
-							to="contact"
+							to="planner"
+							href='/subscribe'
 							smooth={true}
 							offset={50}
 							duration={500}

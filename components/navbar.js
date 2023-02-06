@@ -140,7 +140,7 @@ function Navbar() {
 						<div className="md:hidden" id="mobile-menu">
 							<div ref={ref} className="bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3">
 								<Link
-									href="/home"
+									href="/planner"
 									activeClass="home"
 									to="home"
 									smooth={true}
@@ -151,7 +151,7 @@ function Navbar() {
 									Inicio
 								</Link>
 								<Link
-									href="/about"
+									href="/planner"
 									activeClass="about"
 									to="about"
 									smooth={true}
@@ -162,7 +162,7 @@ function Navbar() {
 									Qué Comer
 								</Link>
 								<Link
-									href="/work"
+									href="/planner"
 									activeClass="work"
 									to="work"
 									smooth={true}
@@ -173,7 +173,7 @@ function Navbar() {
 									Qué Hacer
 								</Link>
 								<Link
-									href="/services"
+									href="/planner"
 									activeClass="services"
 									to="services"
 									smooth={true}
@@ -184,7 +184,7 @@ function Navbar() {
 									Mapa Interactivo
 								</Link>
 								<Link
-									href="/contact"
+									href="/subscribe"
 									activeClass="work"
 									to="work"
 									smooth={true}

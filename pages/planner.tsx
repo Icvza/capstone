@@ -7,7 +7,6 @@ import PlaceCard from '../components/PlaceCard';
 import iconImages from '../components/iconImages';
 import Image from 'next/image';
 
-// import some from '../public/filterBackground.png'
 
 
 // getServerSideProps - Next.js feature that allow someone to make a fetch request on the server before the page is loaded on the client side. 
@@ -198,21 +197,28 @@ export default function PlannerPage({ place }: any) {
   return (
     <div>
       {/* PARENT CONTAINER ----- FILTER COMPONENT */}
-      <div className="p-8 pb-12 pt-28 bg-cover w-full h-fit bg-[url('../public/benjamin-lizardo-d-OoxMOAIgU-unsplash.jpg')]">
+      <div className="p-8 pb-12 pt-56 bg-cover w-full h-fit bg-[url('../public/benjamin-lizardo-d-OoxMOAIgU-unsplash.jpg')]">
 
-        <div className='w-full flex flex-col text-center text-6xl'>
+        {/* <div className='w-full flex flex-row md:flex-col lg:flex-col text-center text-6xl'>
           <p className='text-white'>Platéalo</p>
           <h1 className='text-white'>Explora Puerto Rico</h1>
-        </div>
+        </div> */}
 
         {/* --------------------------------------------------------- TOP BOX - Form, Sort Button and DeleteFilters Button -------------------------------------------------*/}
         {/* TOP BOX CONTAINER */}
-        <div className="flex flex-row justify-between items-end h-40 p-4 pl-12 pr-12">
+        <div className="flex flex-col justify-center items-center h-40 p-4 pl-12 pr-12 sm:items-center sm:flex-col sm:justify-center md:flex-col md:justify-center lg:justify-between lg:flex-row">
 
           {/* FORM */}
-          <div className='flex flex-row justify-evenly items-center gap-5'>
+          <div className='flex flex-row justify-evenly items-center gap-5 border-solid border-black border-2 rounded-lg'>
             <form onSubmit={handleSubmit}>
-              <input type="text" name="Name" placeholder='Busca por nombre o pueblo' value={searchInput} onChange={handleChange} className='h-20 w-80 text-black rounded-lg' />
+              <input
+                type="text"
+                name="Name"
+                placeholder={`Busca por nombre o pueblo`}
+                value={searchInput}
+                onChange={handleChange}
+                className='h-20 w-80 text-black rounded-lg'
+              />
             </form>
           </div>
 
@@ -250,14 +256,15 @@ export default function PlannerPage({ place }: any) {
 
         {/* --------------------------------------------------------- BOTTOM BOX- ICONS, MoreFIlters Button and MAP Button -------------------------------------------------*/}
         {/* BOTTOM BOX CONTAINER */}
-        <div className="p-3 flex flex-row justify-between items-center p-6 pl-12 pr-12 bg-white rounded-lg">
+        <div className="p-3 flex flex-col gap-8 justify-between w-auto items-center h-auto p-6 pl-12 pr-12 bg-white rounded-lg sm:flex-col md:flex-col lg:flex-row">
 
           {/* ICONS */}
-          <div className='h-20 w-8/12 shrink-0 justify-center flex items-center gap-5'>
+          <div className='flex flex-wrap flex-row md:flex-nowrap justify-center items-center gap-5 '>
+
 
             {iconImages.map((icon) => (
 
-              <div key={icon.iconFilterValue} className={`border-solid hover:cursor-pointer hover:shadow-xl hover:scale(1.2 : 1)`} onClick={(): any => iconSort({ iconFilterValue: icon.iconFilterValue })}>
+              <div key={icon.iconFilterValue} className={`w-2/5 border-solid hover:cursor-pointer hover:shadow-xl hover:scale(1.2 : 1)`} onClick={(): any => iconSort({ iconFilterValue: icon.iconFilterValue })}>
                 <Image src={icon.url} alt={icon.iconFilterValue} style={{ transform: `scale(${clickedIcon === icon.iconFilterValue ? 0.8 : 1})`, border: `${clickedIcon === icon.iconFilterValue ? 'solid black' : 'none'}` }} />
               </div>
 
@@ -268,7 +275,7 @@ export default function PlannerPage({ place }: any) {
 
 
           {/* BUTTONS */}
-          <div className='flex flex-row justify-evenly items-center h-20 w-100 gap-8 border-l-4 border-grey pl-4'>
+          <div className='flex flex-row justify-center items-center h-20 w-100 gap-4 sm:flex-row md:flex-row lg:gap-8 lg:border-l-4 border-grey pl-4'>
 
             {/* BUTTONS: MORE FILTERS */}
             <button className='h-10 w-40 m-30 rounded-lg border-solid border-black border-2 hover:bg-gray-200' onClick={() => showMoreFiltersHandler()}>Más Filtros:</button>
@@ -285,17 +292,8 @@ export default function PlannerPage({ place }: any) {
       {
         showMoreFilters ?
           <div className='flex justify-center items-center'>
-            <div className='bg-green-500 h-2/4 w-6/12 flex flex-col flex justify-center items-center absolute top-48 right-50'>
-              <div className='bg-red-200'>
-                <p>Filtros</p>
-                <p>x</p>
-              </div>
-              <div className='bg-yellow-200 h-48'>filtercontent</div>
-              <div className='left-3/4'>
-                <button className='bg-red-200 h-10 w-40 m-30 rounded-lg'>Filtrar</button>
-                <button className='bg-red-200 h-10 w-40 m-30 rounded-lg'>Cancelar</button>
-
-              </div>
+            <div className='bg-white h-2/4 w-6/12 flex flex-col flex justify-center items-center absolute top-48 right-50'>
+              <div>Coming Soon!</div>
             </div>
           </div>
           : null
@@ -303,34 +301,36 @@ export default function PlannerPage({ place }: any) {
 
       {/* MAIN RETURN */}
       {/* CONTENT PASSED IN THROUGH THE 'data' STATE ARE SORTED AND THEN MAPPED ONTO SCREEN. */}
-      {
-        data.sort((a: any, b: any) => {
-          if (isAscending === true) {
-            if (a.nombre < b.nombre) {
-              return -1;
+      <div className='flex flex-wrap w-screen p-8'>
+        {
+          data.sort((a: any, b: any) => {
+            if (isAscending === true) {
+              if (a.nombre < b.nombre) {
+                return -1;
+              }
+              if (a.nombre > b.nombre) {
+                return 1;
+              }
+              return 0;
+            } else {
+              if (a.nombre > b.nombre) {
+                return -1;
+              }
+              if (a.nombre < b.nombre) {
+                return 1;
+              }
+              return 0;
             }
-            if (a.nombre > b.nombre) {
-              return 1;
-            }
-            return 0;
-          } else {
-            if (a.nombre > b.nombre) {
-              return -1;
-            }
-            if (a.nombre < b.nombre) {
-              return 1;
-            }
-            return 0;
-          }
-        }).map((p: any) => (
-          <PlaceCard
-            key={p.id}
-            id={p.id}
-            nombre={p.nombre}
-            card_img={p.card_img}
-          />
-        ))
-      }
+          }).map((p: any) => (
+            <PlaceCard
+              key={p.id}
+              id={p.id}
+              nombre={p.nombre}
+              card_img={p.card_img}
+            />
+          ))
+        }
+      </div>
 
 
     </div >
