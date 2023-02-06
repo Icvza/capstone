@@ -8,7 +8,7 @@ export default function Index(props) {
   }
   return (
     <div className="w-full p-2 shadow-2xl rounded-3xl sm:w-1/2 md:w-1/4 lg:w-1/4 xl:w-1/4">
-      <p className="p-2 text-xl font-bold tracking-wide text-center text-black">
+      <p className="h-16 p-2 text-xl font-bold tracking-wide text-center text-black">
         {props.nombre}
       </p>
       <div className="relative">
